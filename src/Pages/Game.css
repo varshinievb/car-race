@@ -1,0 +1,100 @@
+:root {
+  --hud-size: 28px;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; padding: 0; }
+
+.game-root {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+/* visible video behind canvas (stretched) */
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* canvas drawn on top of video */
+.game-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+/* score HUD */
+.hud.score-hud {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 5;
+  color: #fff;
+  font-size: var(--hud-size);
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  pointer-events: none;
+}
+
+/* Game Over full-screen overlay */
+.game-over-ui {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.88);
+  color: #fff;
+  text-align: center;
+  gap: 18px;
+  padding: 24px;
+}
+
+.crash-img {
+  width: 360px;
+  max-width: 70%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+}
+
+.game-over-ui h1 {
+  font-size: 64px;
+  margin: 0;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.final-score {
+  font-size: 28px;
+  margin: 0;
+}
+
+.go-buttons { display: flex; gap: 12px; margin-top: 8px; }
+
+.btn {
+  appearance: none;
+  border: none;
+  padding: 14px 28px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  background: #e63946;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
